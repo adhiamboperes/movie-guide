@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Movie Guide</string>
+
+    <string name="menu_movies">Movies</string>
+    <string name="menu_shows">Shows</string>
+    <string name="menu_favorites">Favorites</string>
 </resources>
