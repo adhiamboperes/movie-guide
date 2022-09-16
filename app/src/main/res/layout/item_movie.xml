@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_small">
+
+        <ImageView
+            android:id="@+id/item_movie_poster"
+            android:layout_width="@dimen/poster_width"
+            android:layout_height="@dimen/poster_width"
+            android:src="@drawable/spiderman_movie_poster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/list_item_title_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/item_movie_poster"
+            app:layout_constraintTop_toTopOf="@id/item_movie_poster"
+            tools:text="@string/placeholder_title" />
+
+        <TextView
+            android:id="@+id/item_movie_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            app:layout_constraintStart_toEndOf="@id/item_movie_poster"
+            app:layout_constraintTop_toBottomOf="@id/item_movie_title"
+            tools:text="@string/placeholder_year" />
+
+        <TextView
+            android:id="@+id/item_movie_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            app:layout_constraintStart_toEndOf="@id/item_movie_poster"
+            app:layout_constraintTop_toBottomOf="@id/item_movie_year"
+            tools:text="@string/placeholder_rating" />
+
+        <TextView
+            android:id="@+id/item_movie_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            app:layout_constraintStart_toEndOf="@id/item_movie_poster"
+            app:layout_constraintTop_toBottomOf="@id/item_movie_rating"
+            tools:text="@string/placeholder_duration" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

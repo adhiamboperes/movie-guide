@@ -4,4 +4,10 @@
     <string name="menu_movies">Movies</string>
     <string name="menu_shows">Shows</string>
     <string name="menu_favorites">Favorites</string>
+
+    <string name="placeholder_title">SpiderMan: No Way Home</string>
+    <string name="placeholder_rating">7.7/10 IMDb</string>
+    <string name="placeholder_genre">Thriller</string>
+    <string name="placeholder_duration">1h 47m</string>
+    <string name="placeholder_year">2020</string>
 </resources>
