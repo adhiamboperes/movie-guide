@@ -3,6 +3,7 @@ package com.adhiambo.movieguide.common
 import android.app.Application
 import androidx.annotation.VisibleForTesting
 import com.adhiambo.movieguide.common.di.DaggerAppComponent
+import com.adhiambo.movieguide.data.MoviesDatabase
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -17,8 +18,13 @@ class MovieGuideApp : Application(), HasAndroidInjector {
     //@Inject
     //lateinit var errorLogger: ErrorLogger
 
+    init {
+        instance = this
+    }
+
     override fun onCreate() {
         super.onCreate()
+        database = MoviesDatabase.invoke(this)
         setUpDagger()
         RxJavaPlugins.setErrorHandler { e ->
             var error = e
@@ -46,5 +52,10 @@ class MovieGuideApp : Application(), HasAndroidInjector {
 
     override fun androidInjector(): AndroidInjector<Any> {
         return dispatchingAndroidInjector
+    }
+
+    companion object {
+        lateinit var instance: MovieGuideApp
+        lateinit var database: MoviesDatabase
     }
 }

@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.adhiambo.movieguide.common.DATABASE_NAME
 
-@Database(entities = [Movie::class], version = 1)
+@Database(entities = [MovieModel::class], version = 1)
 abstract class MoviesDatabase : RoomDatabase() {
     abstract fun dataDao(): MovieDao
 
