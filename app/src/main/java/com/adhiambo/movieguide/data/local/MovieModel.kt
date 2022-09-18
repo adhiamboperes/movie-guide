@@ -1,10 +1,11 @@
-package com.adhiambo.movieguide.data
+package com.adhiambo.movieguide.data.local
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.adhiambo.movieguide.OpenForTesting
 import com.adhiambo.movieguide.common.room.MovieRoomModel
+import com.adhiambo.movieguide.data.Movie
 
 @Entity(
     tableName = "movies"
@@ -15,7 +16,7 @@ data class MovieModel(
     @ColumnInfo val title: String,
     @ColumnInfo val year: String,
     @ColumnInfo val rating: String,
-    @ColumnInfo val duration: String,
+    @ColumnInfo val adult: Boolean,
     @ColumnInfo val poster: String
 ) : MovieRoomModel<Movie> {
 
@@ -24,7 +25,7 @@ data class MovieModel(
         title = movie.title,
         year = movie.year,
         rating = movie.rating,
-        duration = movie.duration,
+        adult = movie.adult,
         poster = movie.poster
     )
 
@@ -33,7 +34,7 @@ data class MovieModel(
             title = title,
             year = year,
             rating = rating,
-            duration = duration,
+            adult = adult,
             poster = poster,
             id = id
         )

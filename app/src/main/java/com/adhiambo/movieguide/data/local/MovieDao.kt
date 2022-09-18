@@ -1,4 +1,4 @@
-package com.adhiambo.movieguide.data
+package com.adhiambo.movieguide.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert
