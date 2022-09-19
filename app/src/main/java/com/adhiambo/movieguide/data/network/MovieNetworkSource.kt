@@ -15,12 +15,11 @@ class MovieNetworkSource {
     private val restInterface = RestClient.client.create(RestApi::class.java)
 
     fun getMovies(): Single<List<Movie>> {
-        if (!isNetworkAvailable(MovieGuideApp.instance)) {
-            throw  MovieGuideException(msg = "A network error occurred")
-        } else {
-            return Single.fromCallable {
+        return Single.fromCallable {
+            if (!isNetworkAvailable(MovieGuideApp.instance)) {
+                throw  MovieGuideException(msg = "A network error occurred")
+            } else {
                 val response = restInterface.getMovies().execute()
-
                 if (!response.isSuccessful) {
                     throw MovieGuideException()
                 }
