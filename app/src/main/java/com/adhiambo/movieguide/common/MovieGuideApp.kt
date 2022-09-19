@@ -5,7 +5,6 @@ import androidx.annotation.VisibleForTesting
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.disk.DiskCache
-import coil.util.CoilUtils
 import com.adhiambo.movieguide.common.di.DaggerAppComponent
 import com.adhiambo.movieguide.data.MoviesDatabase
 import dagger.android.AndroidInjector
@@ -13,15 +12,14 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import io.reactivex.exceptions.UndeliverableException
 import io.reactivex.plugins.RxJavaPlugins
-import okhttp3.OkHttpClient
 import javax.inject.Inject
 
 class MovieGuideApp : Application(), HasAndroidInjector, ImageLoaderFactory {
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
-    //@Inject
-    //lateinit var errorLogger: ErrorLogger
+    @Inject
+    lateinit var errorLogger: ErrorLogger
 
     init {
         instance = this
@@ -39,11 +37,11 @@ class MovieGuideApp : Application(), HasAndroidInjector, ImageLoaderFactory {
                 error = e.orCause()
             }
 
-            /*  errorLogger.logException(
-                  throwable = error,
-                  message = "Exception handled by RxJavaPlugins.setErrorHandler",
-                  severity = ErrorLogger.Severity.WARNING
-              )*/
+            errorLogger.logException(
+                throwable = error,
+                message = "Exception handled by RxJavaPlugins.setErrorHandler",
+                severity = ErrorLogger.Severity.WARNING
+            )
         }
     }
 

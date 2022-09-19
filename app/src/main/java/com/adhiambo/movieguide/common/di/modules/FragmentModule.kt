@@ -6,5 +6,6 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class FragmentModule {
-
+    @ContributesAndroidInjector
+    abstract fun contributeMovieListFragment(): MovieListFragment
 }

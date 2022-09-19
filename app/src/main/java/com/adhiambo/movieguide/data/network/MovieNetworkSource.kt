@@ -6,20 +6,19 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import com.adhiambo.movieguide.common.MovieGuideApp
 import com.adhiambo.movieguide.config.MovieGuideException
-import com.adhiambo.movieguide.config.RestClient
 import com.adhiambo.movieguide.data.Movie
 import io.reactivex.Single
+import javax.inject.Inject
 
 
-class MovieNetworkSource {
-    private val restInterface = RestClient.client.create(RestApi::class.java)
+class MovieNetworkSource @Inject constructor(private val restApi: RestApi) {
 
     fun getMovies(): Single<List<Movie>> {
         return Single.fromCallable {
             if (!isNetworkAvailable(MovieGuideApp.instance)) {
                 throw  MovieGuideException(msg = "A network error occurred")
             } else {
-                val response = restInterface.getMovies().execute()
+                val response = restApi.getMovies().execute()
                 if (!response.isSuccessful) {
                     throw MovieGuideException()
                 }

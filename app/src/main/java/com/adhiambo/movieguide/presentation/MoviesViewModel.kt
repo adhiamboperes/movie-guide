@@ -6,9 +6,11 @@ import com.adhiambo.movieguide.data.Movie
 import com.adhiambo.movieguide.data.usecase.GetMoviesUseCase
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class MoviesViewModel : ViewModel() {
-    private val getMovieUseCase = GetMoviesUseCase()
+class MoviesViewModel @Inject constructor(
+    private val getMovieUseCase: GetMoviesUseCase
+) : ViewModel() {
 
     val movies = MutableLiveData<List<Movie>>()
     val fetchStateLiveData = MutableLiveData<FetchState>()
