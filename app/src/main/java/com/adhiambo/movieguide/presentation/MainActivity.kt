@@ -1,9 +1,10 @@
-package com.adhiambo.movieguide
+package com.adhiambo.movieguide.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.adhiambo.movieguide.R
 import com.adhiambo.movieguide.databinding.ContentMainBinding
 
 class MainActivity : AppCompatActivity() {

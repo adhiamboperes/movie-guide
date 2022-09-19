@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium_small">
+
+        <ImageView
+            android:id="@+id/item_movie_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/poster_width"
+            android:src="@drawable/spiderman_movie_poster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium_large"
+            android:layout_marginTop="@dimen/margin_small"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/list_item_title_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/item_movie_poster"
+            app:layout_constraintTop_toTopOf="@id/item_movie_poster"
+            tools:text="@string/placeholder_title" />
+
+        <TextView
+            android:id="@+id/item_movie_year_label"
+            style="@style/MovieDetailLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            android:text="@string/label_movie_year"
+            app:layout_constraintStart_toStartOf="@id/item_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/item_movie_title" />
+
+        <TextView
+            android:id="@+id/item_movie_year"
+            style="@style/MovieDetailStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            app:layout_constraintStart_toEndOf="@id/item_movie_year_label"
+            app:layout_constraintTop_toBottomOf="@id/item_movie_title"
+            tools:text="@string/placeholder_year" />
+
+        <TextView
+            android:id="@+id/item_movie_rating_label"
+            style="@style/MovieDetailLabelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            android:text="@string/label_movie_rating"
+            app:layout_constraintStart_toStartOf="@id/item_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/item_movie_year_label" />
+
+        <TextView
+            android:id="@+id/item_movie_rating"
+            style="@style/MovieDetailStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            app:layout_constraintStart_toEndOf="@id/item_movie_rating_label"
+            app:layout_constraintTop_toBottomOf="@id/item_movie_year"
+            tools:text="@string/placeholder_rating" />
+
+
+        <ImageView
+            android:id="@+id/item_movie_rating_symbol"
+            android:layout_width="@dimen/rating_symbol_width"
+            android:layout_height="@dimen/rating_symbol_width"
+            android:layout_marginTop="@dimen/margin_medium_large"
+            app:layout_constraintStart_toStartOf="@id/item_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/item_movie_rating" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

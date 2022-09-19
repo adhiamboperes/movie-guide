@@ -6,7 +6,7 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RestClient {
-    private const val BASE_URL = "https://api.themoviedb.org/"
+    private const val BASE_URL = "https://api.themoviedb.org/3/"
     private var retrofit: Retrofit? = null
 
     val client: Retrofit
