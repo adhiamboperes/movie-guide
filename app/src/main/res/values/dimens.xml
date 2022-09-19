@@ -16,9 +16,8 @@
     <dimen name="padding_large">16dp</dimen>
 
     <dimen name="poster_width">150dp</dimen>
+    <dimen name="rating_symbol_width">15dp</dimen>
 
     <dimen name="list_item_title_size">20sp</dimen>
-    <dimen name="list_item_rating_size">16sp</dimen>
-    <dimen name="list_item_genre_size">14sp</dimen>
-    <dimen name="list_item_duration_size">16sp</dimen>
+    <dimen name="list_item_detail_size">14sp</dimen>
 </resources>

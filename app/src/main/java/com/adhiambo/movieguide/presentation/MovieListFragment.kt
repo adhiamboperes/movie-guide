@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -44,11 +45,24 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
     private fun initializeObservers() {
         viewModel.getMovies()
         viewModel.movies.observe(viewLifecycleOwner) { movies ->
-            moviesAdapter = MoviesAdapter(movies)
+            moviesAdapter.addItems(movies)
+        }
+
+        viewModel.fetchStateLiveData.observe(viewLifecycleOwner) { status ->
+            if (status == MoviesViewModel.FetchState.FETCH_FAILED) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.error_could_not_fetch_movies),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 
     private fun initializeAdapter() {
+        moviesAdapter = MoviesAdapter()
+        moviesAdapter.setHasStableIds(true)
+
         binding.movieList.apply {
             adapter = moviesAdapter
             layoutManager = LinearLayoutManager(requireContext())

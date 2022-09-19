@@ -10,4 +10,9 @@
     <string name="placeholder_genre">Thriller</string>
     <string name="placeholder_duration">1h 47m</string>
     <string name="placeholder_year">2020</string>
+
+    <string name="error_could_not_fetch_movies"> An error occurred. Please try again.</string>
+
+    <string name="label_movie_year">Year: </string>
+    <string name="label_movie_rating">Rating: </string>
 </resources>

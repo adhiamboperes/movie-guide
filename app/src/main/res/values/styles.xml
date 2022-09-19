@@ -16,4 +16,13 @@
         <item name="colorPrimary">@color/lilac</item>
         <item name="colorOnPrimary">#7E61A0</item>
     </style>
+
+    <style name="MovieDetailLabelStyle" parent="">
+        <item name="android:textSize">@dimen/list_item_detail_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MovieDetailStyle" parent="">
+        <item name="android:textSize">@dimen/list_item_detail_size</item>
+    </style>
 </resources>
