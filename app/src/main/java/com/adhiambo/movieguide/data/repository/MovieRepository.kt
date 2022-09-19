@@ -1,11 +1,14 @@
 package com.adhiambo.movieguide.data.repository
 
+import com.adhiambo.movieguide.OpenForTesting
 import com.adhiambo.movieguide.common.MovieGuideApp
 import com.adhiambo.movieguide.data.Movie
 import com.adhiambo.movieguide.data.local.MovieModel
 import com.adhiambo.movieguide.data.network.MovieNetworkSource
+import io.reactivex.Completable
 import io.reactivex.Single
 
+@OpenForTesting
 class MovieRepository {
     private val networkSource = MovieNetworkSource()
 
@@ -19,7 +22,9 @@ class MovieRepository {
         }
     }
 
-    fun saveMovies(movies: List<Movie>) {
-        MovieGuideApp.database.movieDao().insertMovies(movies.map { MovieModel(it) })
+    fun saveMovies(movies: List<Movie>): Completable {
+        return Completable.fromCallable {
+            MovieGuideApp.database.movieDao().insertMovies(movies.map { MovieModel(it) })
+        }
     }
 }

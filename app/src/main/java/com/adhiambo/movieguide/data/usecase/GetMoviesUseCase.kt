@@ -1,9 +1,11 @@
 package com.adhiambo.movieguide.data.usecase
 
+import com.adhiambo.movieguide.OpenForTesting
 import com.adhiambo.movieguide.data.Movie
 import com.adhiambo.movieguide.data.repository.MovieRepository
 import io.reactivex.Single
 
+@OpenForTesting
 class GetMoviesUseCase {
     private val movieRepository = MovieRepository()
 
