@@ -19,9 +19,7 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = activity?.run {
-            ViewModelProvider(this)[MoviesViewModel::class.java]
-        } ?: throw Exception("Invalid Activity")
+        viewModel = ViewModelProvider(requireActivity())[MoviesViewModel::class.java]
     }
 
     override fun onCreateView(
